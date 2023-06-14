@@ -1,12 +1,15 @@
-#[derive(Debug)]
-pub enum List<T> {
-    Cons(T, Box<List<T>>),
-    Nil,
+struct Node {
+    elem: i32,
+    next: List,
 }
 
-pub fn box_list() -> List<i32> {
-    let lkd_l = List::Cons(1, Box::new(List::Cons(2, Box::new(List::Nil))));
-    println!("{:?}", lkd_l);
+pub enum List {
+    Empty,
+    More(Box<Node>),
+}
+
+pub fn box_list() -> List {
+    let lkd_l: List = List::Empty;
     lkd_l
 }
 
