@@ -1,17 +1,18 @@
-struct Node {
-    elem: i32,
-    next: List,
+pub struct List {
+    head: Link,
 }
 
-pub enum List {
+enum Link {
     Empty,
     More(Box<Node>),
 }
 
-pub fn box_list() -> List {
-    let lkd_l: List = List::Empty;
-    lkd_l
+struct Node {
+    elem: i32,
+    next: Link,
 }
+
+pub fn box_list() {}
 
 #[cfg(test)]
 mod tests {
