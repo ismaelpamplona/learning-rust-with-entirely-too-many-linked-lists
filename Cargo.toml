@@ -1,0 +1,3 @@
+[workspace]
+
+members = ["_playground", "p1_first"]
