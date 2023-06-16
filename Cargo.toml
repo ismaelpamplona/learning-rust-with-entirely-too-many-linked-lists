@@ -1,3 +1,9 @@
 [workspace]
 
-members = ["_playground", "t2_1_layout", "t2_2_new", "t2_3_ownership_101"]
+members = [
+    "_playground",
+    "t2_1_layout",
+    "t2_2_new",
+    "t2_3_ownership_101",
+    "t2_4_push",
+]
