@@ -6,4 +6,5 @@ members = [
     "t2_2_new",
     "t2_3_ownership_101",
     "t2_4_push",
+    "t2_5_pop",
 ]
