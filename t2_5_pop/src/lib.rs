@@ -1,15 +1,15 @@
-#[derive(Debug)]
+#[derive(PartialEq, Debug)]
 pub struct List {
     head: Link,
 }
 
-#[derive(Debug)]
+#[derive(PartialEq, Debug)]
 enum Link {
     Empty,
     More(Box<Node>),
 }
 
-#[derive(Debug)]
+#[derive(PartialEq, Debug)]
 struct Node {
     elem: i32,
     next: Link,
@@ -35,21 +35,10 @@ impl List {
     }
 
     pub fn pop(&mut self) -> Option<i32> {
-        unimplemented!()
-    }
-}
-
-pub fn box_list() {
-    let mut list: List = List::new();
-    let els = vec![5, 10, 15, 20, 25, 30];
-    for el in els {
-        list.push(el);
-    }
-    println!("{:#?}", list);
-    if let Some(popped_el) = list.pop() {
-        println!("{}", popped_el);
-    } else {
-        println!("Nothing popped!");
+        match std::mem::replace(&mut self.head, Link::Empty) {
+            Link::Empty => None,
+            Link::More(node) => Some(node.elem),
+        }
     }
 }
 
@@ -59,6 +48,17 @@ mod tests {
 
     #[test]
     fn case_01() {
-        box_list();
+        let mut list_a = List::new();
+        let nums = vec![1, 2, 3, 4, 5];
+        for n in nums {
+            list_a.push(n);
+        }
+        list_a.pop();
+        let mut list_b = List::new();
+        let nums = vec![1, 2, 3, 4];
+        for n in nums {
+            list_b.push(n);
+        }
+        assert_eq!(list_a, list_b);
     }
 }
