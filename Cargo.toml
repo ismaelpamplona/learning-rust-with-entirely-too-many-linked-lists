@@ -10,4 +10,5 @@ members = [
     "t2_6_testing",
     "t2_7_drop",
     "t2_8_final_code",
+    "t3_1_option",
 ]
