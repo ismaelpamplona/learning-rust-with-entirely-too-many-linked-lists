@@ -1,12 +1,15 @@
+#[derive(Debug)]
 pub struct List {
     head: Link,
 }
 
+#[derive(Debug)]
 enum Link {
     Empty,
     More(Box<Node>),
 }
 
+#[derive(Debug)]
 struct Node {
     elem: i32,
     next: Link,
@@ -18,7 +21,10 @@ impl List {
     }
 }
 
-pub fn box_list() {}
+pub fn box_list() {
+    let list: List = List::new();
+    println!("{:?}", list);
+}
 
 #[cfg(test)]
 mod tests {
