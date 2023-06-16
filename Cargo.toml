@@ -8,4 +8,5 @@ members = [
     "t2_4_push",
     "t2_5_pop",
     "t2_6_testing",
+    "t2_7_drop",
 ]
