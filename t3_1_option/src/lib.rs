@@ -1,3 +1,5 @@
+// https://doc.rust-lang.org/std/mem/fn.replace.html
+// https://doc.rust-lang.org/std/option/enum.Option.html#method.take
 pub struct List {
     head: Link,
 }

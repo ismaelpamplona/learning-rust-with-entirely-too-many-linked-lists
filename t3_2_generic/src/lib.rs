@@ -19,7 +19,6 @@ impl<T> List<T> {
         let new_node = Box::new(Node {
             elem: elem,
             next: self.head.take(),
-            // next: mem::replace(&mut self.head, None),
         });
 
         self.head = Some(new_node);

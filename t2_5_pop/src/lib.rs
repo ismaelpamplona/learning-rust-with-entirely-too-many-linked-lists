@@ -56,7 +56,8 @@ mod tests {
         for n in nums {
             list_a.push(n);
         }
-        list_a.pop();
+        let popped = list_a.pop();
+        println!("{:?}", popped);
         let mut list_b = List::new();
         let nums = vec![1, 2, 3, 4];
         for n in nums {
