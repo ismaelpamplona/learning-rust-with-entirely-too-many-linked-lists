@@ -12,3 +12,6 @@ Repository dedicated to study the content of: [Learn Rust With Entirely Too Many
 - [`type IntoIter: Iterator<Item = Self::Item>`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html#associatedtype.IntoIter)
 - [`Struct std::slice::IterMut`](https://doc.rust-lang.org/std/slice/struct.IterMut.html)
 - [`Struct std::slice::Iter`](https://doc.rust-lang.org/std/slice/struct.Iter.html)
+
+## Related videos
+- [Rust Lifetimes Finally Explained!](https://www.youtube.com/watch?v=juIINGuZyBc)
