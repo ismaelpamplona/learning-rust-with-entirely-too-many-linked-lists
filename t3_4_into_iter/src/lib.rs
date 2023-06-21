@@ -45,6 +45,33 @@ impl<T> List<T> {
     }
 }
 
+impl<T: Clone> Clone for List<T> {
+    fn clone(&self) -> Self {
+        let mut cloned_list = List::new();
+        let mut current = &self.head;
+        let mut prev_cloned_node: Option<&mut Box<Node<T>>> = None;
+
+        while let Some(node) = current {
+            let cloned_node = Box::new(Node {
+                elem: node.elem.clone(),
+                next: None,
+            });
+
+            if let Some(prev_node) = prev_cloned_node {
+                prev_node.next = Some(cloned_node);
+                prev_cloned_node = prev_node.next.as_mut().map(|n| &mut *n);
+            } else {
+                cloned_list.head = Some(cloned_node);
+                prev_cloned_node = cloned_list.head.as_mut().map(|n| &mut *n);
+            }
+
+            current = &node.next;
+        }
+
+        cloned_list
+    }
+}
+
 impl<T> Drop for List<T> {
     fn drop(&mut self) {
         let mut cur_link = self.head.take();
@@ -54,6 +81,9 @@ impl<T> Drop for List<T> {
     }
 }
 
+// Tuple structs are an alternative form of struct,
+// useful for trivial wrappers around other types.
+#[derive(Debug)]
 pub struct IntoIter<T>(List<T>);
 
 impl<T> Iterator for IntoIter<T> {
@@ -72,8 +102,14 @@ fn into_iter() {
         list.push(*el);
     }
 
-    let mut iter = list.into_iter();
+    let mut iter = list.clone().into_iter();
+    println!("##### First iter");
+    println!("{:?}", iter);
     for el in els.iter().rev().cloned() {
         assert_eq!(iter.next(), Some(el));
     }
+    println!("##### Second iter");
+    println!("{:?}", iter);
+    println!("##### List");
+    println!("{:?}", list);
 }
