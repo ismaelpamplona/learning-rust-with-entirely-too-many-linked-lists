@@ -16,4 +16,5 @@ members = [
     "t3_4_into_iter",
     "t3_5_iter",
     "t3_6_iter_mut",
+    "t3_7_final_code",
 ]
