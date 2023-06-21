@@ -10,6 +10,10 @@ impl<'a> ImportantExcerpt<'a> {
         println!("Attention please: {}", announcement);
         self.part
     }
+    fn foo3(&'a self, a: &'a str, b: &str) -> &'a str {
+        println!("Foo3 function");
+        a
+    }
 }
 
 pub fn main() {
@@ -86,6 +90,13 @@ where
     } else {
         y
     }
+}
+
+fn foo(a: &str, b: &str, c: &str) {
+    println!("Foo function");
+}
+fn foo2<'a, 'b, 'c>(a: &'a str, b: &'b str, c: &'c str) {
+    println!("Foo2 function");
 }
 
 #[cfg(test)]
