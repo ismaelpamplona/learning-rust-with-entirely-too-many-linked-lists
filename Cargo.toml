@@ -15,4 +15,5 @@ members = [
     "t3_3_peek",
     "t3_4_into_iter",
     "t3_5_iter",
+    "t3_6_iter_mut",
 ]
